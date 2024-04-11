@@ -45,6 +45,8 @@ void setup()  {
   pinMode( PIN_IN2 , OUTPUT );      // IN2
   pinMode( PIN_ENA , OUTPUT );      // ENA
   
+  
+  
   for(unsigned i=0; i < SAMPLES_PER_PHASE; i++ )  {
 
     float r = sin( PI * i / SAMPLES_PER_PHASE  );   // Range 0-1, domain from 0 to PI (which is one phase of the the full since wave cycle);
@@ -57,6 +59,11 @@ void setup()  {
   
   // We leave the enable pin high and control direction and power with the EN pins
   digitalWrite( PIN_ENA , HIGH );
+  
+  // Turn off the builtin LED for slight power savings
+  pinMode( LED_BUILTIN , OUTPUT );  
+  digitalWrite( LED_BUILTIN , LOW );
+
   
 }
 
@@ -90,11 +97,11 @@ void pwm_single_phase() {
 void loop() {
   
   // Positive forward phase
-    FastGPIO::Pin<PIN_IN1>::setOutput(HIGH);    
-    pwm_single_phase< PIN_IN2 , LOW , HIGH >();
-
+  FastGPIO::Pin<PIN_IN1>::setOutput(HIGH);    
+  pwm_single_phase< PIN_IN2 , LOW , HIGH >();
+  
   // Negative backward phase    
   FastGPIO::Pin<PIN_IN1>::setOutput(LOW);    
   pwm_single_phase< PIN_IN2 , HIGH , LOW >();
-
+  
 }
