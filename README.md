@@ -28,6 +28,8 @@ timer at zero and the buzzer turned off, but this would eventually make the batt
 You might think think that we only need to input 6V into the transformer to get 120VAC out, but remember that 120VAC is actually RMS power,
 so peaks at about 180V. And the system is messy and lossy. 
 
+I tried to make my conversion reversable, so I used Wago wire nuts everywhere and saved the orginal cord and stuck it inside the case before I sealed it back up.
+
 # Photo
 
 ![PXL_20240504_013340778 MP](https://github.com/bigjosh/60Hz-PWM-sine/assets/5520281/61d20655-cf82-4bc6-8787-543b82a87e47)
